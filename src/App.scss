@@ -1,0 +1,29 @@
+// App.scss is rules on how app looks
+
+// define primary color
+$primary-color: #ffd700;
+
+// import animate.css library to ensure animation classes are bundled into app's final CSS
+@import 'animate.css';
+
+// @font-face rule tells browser that this is a custom font I want to use
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./assets/fonts/helvetica-neu.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'La Belle Aurore';
+  src: url('./assets/fonts/LaBelleAurore.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2');
+}
+
+// default font for input and textarea
+input,
+textarea {
+  font-family: 'Helvetica Neue';
+}
