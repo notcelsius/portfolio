@@ -1,27 +1,122 @@
 .nav-bar {
-    background: #181818;
-    width: 60px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 3;
-    min-height: 500px;
+    background: #181818;    // Dark gray background color for the sidebar
+    width: 60px;    // Fixed width of 60px for the sidebar
+    height: 100%;    // Makes the sidebar stretch the full height of the viewport
+    position: absolute;    // Positions it absolutely relative to the nearest positioned ancestor
+    top: 0;    // Aligns the top of the sidebar to the top of the page
+    z-index: 3;    // Stacks it above elements with lower z-index values
+    min-height: 500px;    // Ensures sidebar is at least 500px tall (even if content is shorter)
 
     .logo {
-        display: block;
-        padding: 8px 0;
+        display: block;    // Makes the logo link act like a block element (takes full width)
+        padding: 8px 0;    // Adds vertical space above and below the logos
 
         img {
-            display: block;
-            margin: 8px auto;
-            width: 24px;
-            height: auto;
+            display: block;    // Forces each image to behave like a block (stack vertically)
+            margin: 8px auto;    // Centers the image horizontally with 8px margin on top/bottom
+            width: 24px;    // Default logo width is 24px
+            height: auto;    // Keeps the image’s aspect ratio while resizing
 
-            &.sub-logo {
-                width: 50px;
+            &.sub-logo {    // Targets <img> that also has class "sub-logo"
+                width: 50px;    // Makes the subtitle logo larger than the main logo
+            }
+        }
+    }
+
+    nav {
+        display: block;    // Makes <nav> a block container
+        text-align: center;    // Centers inline elements (like icons/text) inside it horizontally
+        position: absolute;    // Absolutely positions the nav inside the sidebar
+        height: 210px;    // Fixed height of the nav section
+        top: 50%;    // Pushes nav down to the vertical center of the sidebar
+        margin-top: -120px;    // Shifts it up 120px to truly center it (because height is 210px)
+        width: 100%;    // Makes nav fill the full width of the sidebar (60px)
+
+        a {
+            font-size: 22px;    // Sets base font size for any text inside (mainly icons)
+            color: #4d4d4e;    // Default color for the icons
+            display: block;    // Makes each link take up the full sidebar width
+            line-height: 51px;    // Vertically centers icon/text within the link box
+            height: 51px;    // Each link is 51px tall
+            position: relative;    // Needed so the :after label can be positioned absolutely inside it
+            text-decoration: none;    // Removes underline from the links
+
+            i {
+                transition: all 0.3s ease-out;    // (Unused now) Smooth transition for <i> icons if they existed
+            }
+
+            &:hover {
+                color: #ffd700;    // Changes text/icon color to gold on hover
+
+                svg {
+                    opacity: 0;    // Fades the icon out on hover
+                }
+
+                &:after {
+                    opacity: 1;    // Makes the text label appear on hover
+                }
+            }
+
+            &:after {
+                content: '';    // Placeholder text (will be overridden below)
+                font-size: 9px;    // Small label text size
+                letter-spacing: 2px;    // Space between letters
+                position: absolute;    // Positions it within the link box
+                bottom: 0;    // Places the label at the bottom of the link box
+                display: block;    // Makes it behave like a block element
+                width: 100%;    // Spans the full width of the link
+                text-align: center;    // Centers the text label horizontally
+                opacity: 0;    // Hidden by default (until hover)
+                transition: all 0.3s ease-out;    // Smooth fade when appearing/disappearing
+            }
+
+            &:first-child {    // Targets the first link inside nav
+                &::after {
+                    content: 'HOME';    // Sets its label text to "HOME"
+                }
             }
         }
 
-        
+        a.about-link {
+            &:after {
+                content: 'ABOUT';    // Sets the second link’s label to "ABOUT"
+            }
+        }
+
+        a.contact-link {
+            &:after {
+                content: 'CONTACT';    // Sets the third link’s label to "CONTACT"
+            }
+        }
+
+        a.active {
+            svg {
+                color: #ffd700;    // Highlights the current active link icon in gold
+            }
+        }
+    }
+
+    ul {
+        position: absolute;    // Positions the social link list absolutely inside sidebar
+        bottom: 20px;    // Anchors it 20px from the bottom of the sidebar
+        width: 100%;    // Makes it the full width of the sidebar
+        display: block;    // Makes <ul> behave like a block element
+        padding: 0;    // Removes default padding from the list
+        list-style: none;    // Removes default bullet points
+        text-align: center;    // Centers the <li> contents horizontally
+        margin: 0;    // Removes default margin
+
+        li {
+            a {
+                padding: 7px 0;    // Vertical space around each icon link
+                display: block;    // Makes each link take the full width of the <ul>
+                font-size: 15px;    // Font size if text was used (not really needed for icons)
+                line-height: 16px;    // Line height (mostly for vertical alignment)
+
+                &:hover svg {
+                    color: #ffd700;    // Turns social icons gold when hovered
+                }
+            }
+        }
     }
 }
