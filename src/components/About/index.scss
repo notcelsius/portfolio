@@ -1,0 +1,10 @@
+.about-page {
+  img {
+    position: absolute;
+    top: 50%;
+    left: 150%;           /* move it to the right of the text */
+    transform: translateY(-50%);
+    width: 350px;         /* adjust size as needed */
+    height: auto;
+  }
+}
