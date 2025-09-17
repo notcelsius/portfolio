@@ -6,5 +6,8 @@
     transform: translateY(-50%);
     width: 350px;         /* adjust size as needed */
     height: auto;
+    opacity: 0;
+    animation: fadeIn 2s 2s;
+    animation-fill-mode: forwards;
   }
 }
