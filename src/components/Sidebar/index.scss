@@ -89,6 +89,12 @@
             }
         }
 
+        a.portfolio-link {
+            &:after {
+                content: 'PORTFOLIO';    // Sets the third link’s label to "CONTACT"
+            }
+        }
+
         a.active {
             svg {
                 color: #ffd700;    // Highlights the current active link icon in gold
